@@ -1,0 +1,60 @@
+@font-face {
+	font-family: "Miroslav";
+	src: url("/fonts/Miroslav/Regular.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Miroslav";
+	src: url("/fonts/Miroslav/Bold.ttf") format("truetype");
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Onest";
+	src: url("/fonts/Onest/Onest-Regular.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Onest";
+	src: url("/fonts/Onest/Onest-Black.woff2") format("woff2");
+	font-weight: 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "icon-fonts";
+	src:
+		url("/fonts/IconFonts/icon-fonts.woff2") format("woff2"),
+		url("/fonts/IconFonts/icon-fonts.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class*="icon-"]:before {
+	font-family: "icon-fonts";
+}
+
+.icon-gmail:before {
+	content: "\e800";
+}
+.icon-phone:before {
+	content: "\e801";
+}
+.icon-vkontakte:before {
+	content: "\f189";
+}
+.icon-whatsapp:before {
+	content: "\f232";
+}
+.icon-telegram:before {
+	content: "\f2c6";
+}
+.icon-logo:before {
+	content: "\e802";
+}
+.icon-star:before {
+	content: "\e803";
+}

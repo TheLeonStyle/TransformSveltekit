@@ -1,0 +1,1 @@
+{"version":3,"file":"BASE-CQVHS4Bg.js","sources":["../../../.svelte-kit/adapter-node/chunks/BASE.js"],"sourcesContent":["const STRAPI_URL = \"https://admin.xn--80ablkf6afid.xn--p1ai/\";\nexport {\n  STRAPI_URL as S\n};\n"],"names":[],"mappings":"AAAK,MAAC,UAAU,GAAG;;;;"}
