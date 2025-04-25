@@ -2,40 +2,51 @@
 	const { dataIntro } = $props();
 	import { currentCategory } from '$lib/stores';
 	import { STRAPI_URL } from '$lib/utils/BASE';
+	import { onMount } from 'svelte';
+
+	let visible = $state(true);
 
 	const handleLinks = (category, path) => {
 		currentCategory.set(category);
 	};
+
+	onMount(() => {
+		setTimeout(() => {
+			visible = false;
+		}, 4000);
+	});
 </script>
 
 <section class="intro" aria-labelledby="intro-title" style={`background-image: url(${STRAPI_URL}${dataIntro.background.url})`}>
 	<div class="intro__container">
 		<div class="intro__wrapper">
-			<div class="intro__content" aria-labelledby="intro-title" data-aos="fade-down">
-				<h1 id="intro-title" class="intro__title" data-aos="fade-down">
-					{dataIntro.title}
-				</h1>
-				<p class="intro__subtitle" data-aos="fade-down">{dataIntro.subtitle}</p>
-				<a href="/services" class="intro__button" aria-label={dataIntro.button} data-aos="fade-down">{dataIntro.button}</a>
-			</div>
-
-			<div class="intro__outer">
-				<div class="intro__inner">
-					<h2 class="intro__text" data-aos="fade-right" data-aos-delay="300">Преображаем</h2>
-					<ul class="intro__items" data-aos="fade-right" data-aos-delay="600">
-						<li class="intro__item" data-aos="fade-right" data-aos-delay="1000">
-							<a href="/works" class="intro__link" aria-label="Показать работы: Офисы" onclick={() => handleLinks('Офисы')}>Офисы</a>
-						</li>
-						<li class="intro__item" data-aos="fade-right" data-aos-delay="1000">
-							<a href="/works" class="intro__link" aria-label="Показать работы: Дома" onclick={() => handleLinks('Дома')}>Дома</a>
-						</li>
-						<li class="intro__item" data-aos="fade-right" data-aos-delay="1000">
-							<a href="/works" class="intro__link" aria-label="Показать работы: Квартиры" onclick={() => handleLinks('Квартиры')}>Квартиры</a>
-						</li>
-					</ul>
+			{#if visible}
+				<div class="intro__content" aria-labelledby="intro-title" data-aos="fade-left" data-aos-delay="300">
+					<h1 id="intro-title" class="intro__title" data-aos="fade-left" data-aos-delay="1000">
+						{dataIntro.title}
+					</h1>
+					<p class="intro__subtitle" data-aos="fade-left" data-aos-delay="500">{dataIntro.subtitle}</p>
+					<a href="/services" class="intro__button" aria-label={dataIntro.button} data-aos="fade-left">{dataIntro.button}</a>
 				</div>
-				<p class="intro__locate" data-aos="fade-left" data-aos-delay="600">{dataIntro.locate}</p>
-			</div>
+			{:else}
+				<div class="intro__outer">
+					<div class="intro__inner">
+						<h2 class="intro__text" data-aos="fade-right" data-aos-delay="300">Преображаем</h2>
+						<ul class="intro__items" data-aos="fade-right" data-aos-delay="1000">
+							<li class="intro__item" data-aos="fade-right" data-aos-delay="1500">
+								<a href="/works" class="intro__link" aria-label="Показать работы: Квартиры" onclick={() => handleLinks('Квартиры')}>Квартиры</a>
+							</li>
+							<li class="intro__item" data-aos="fade-right" data-aos-delay="2000">
+								<a href="/works" class="intro__link" aria-label="Показать работы: Дома" onclick={() => handleLinks('Дома')}>Дома</a>
+							</li>
+							<li class="intro__item" data-aos="fade-right" data-aos-delay="2500">
+								<a href="/works" class="intro__link" aria-label="Показать работы: Офисы" onclick={() => handleLinks('Офисы')}>Офисы</a>
+							</li>
+						</ul>
+					</div>
+					<p class="intro__locate" data-aos="fade-left" data-aos-delay="3000">{dataIntro.locate}</p>
+				</div>
+			{/if}
 		</div>
 	</div>
 </section>
@@ -150,6 +161,10 @@
 			// gap: rem(120);
 
 			@include adaptiveValue('gap', 130, 40, 991, 767, 1);
+
+			@media (max-width: $mobile) {
+				width: 100%;
+			}
 		}
 		/* .intro__inner */
 		&__inner {
@@ -157,6 +172,7 @@
 			align-items: center;
 			gap: rem(20);
 			// margin-bottom: rem(160);
+			padding-top: rem(40);
 
 			// @media (max-width: em(1150)) {
 			// 	display: none;

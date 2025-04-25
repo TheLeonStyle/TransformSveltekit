@@ -96,7 +96,7 @@
       "_client.js"
     ],
     "css": [
-      "_app/immutable/assets/_layout.VyKRMotO.css"
+      "_app/immutable/assets/_layout.B8mJW28g.css"
     ]
   },
   "src/routes/+page.server.js": {
@@ -118,7 +118,7 @@
       "_BASE.js"
     ],
     "css": [
-      "_app/immutable/assets/_page.CBLEt-g9.css",
+      "_app/immutable/assets/_page.bCQvqeTf.css",
       "_app/immutable/assets/Media.CHqklXWZ.css"
     ]
   },

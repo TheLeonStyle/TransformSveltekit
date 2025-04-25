@@ -44,13 +44,7 @@
 			</a>
 		</nav>
 
-		<button
-			class="header__burger"
-			type="button"
-			aria-label="Открыть главное меню"
-			aria-controls="mobile-menu"
-			aria-expanded={menuStore.isOpen}
-			onclick={() => menuStore.open()}>
+		<button class="header__burger" type="button" aria-label="Открыть главное меню" onclick={() => menuStore.open()}>
 			<span aria-hidden="true"></span>
 		</button>
 	</div>

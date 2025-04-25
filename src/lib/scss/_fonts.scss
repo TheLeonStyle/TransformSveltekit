@@ -3,12 +3,14 @@
 	src: url("/fonts/Miroslav/Regular.ttf") format("truetype");
 	font-weight: normal;
 	font-style: normal;
+	font-display: swap;
 }
 @font-face {
 	font-family: "Miroslav";
 	src: url("/fonts/Miroslav/Bold.ttf") format("truetype");
 	font-weight: 700;
 	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
@@ -16,12 +18,14 @@
 	src: url("/fonts/Onest/Onest-Regular.woff2") format("woff2");
 	font-weight: normal;
 	font-style: normal;
+	font-display: swap;
 }
 @font-face {
 	font-family: "Onest";
 	src: url("/fonts/Onest/Onest-Black.woff2") format("woff2");
 	font-weight: 900;
 	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
@@ -31,6 +35,7 @@
 		url("/fonts/IconFonts/icon-fonts.woff") format("woff");
 	font-weight: normal;
 	font-style: normal;
+	font-display: swap;
 }
 
 [class*="icon-"]:before {
