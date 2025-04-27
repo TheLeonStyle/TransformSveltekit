@@ -19,11 +19,12 @@
 			<a href={dataSocial.whatsapp} class="footer__social footer__icon icon-whatsapp" aria-label="Перейти в WhatsApp" target="_blank">WhatsApp</a>
 			<a href={dataSocial.telegram} class="footer__social footer__icon icon-telegram" aria-label="Перейти в Telegram" target="_blank">Telegram</a>
 			<a href="tel:{dataSocial.phone}" class="footer__social footer__icon icon-phone" aria-label="Позвонить {dataSocial.phone}" target="_blank">Звонок</a>
+			<a href={dataSocial.dzen} class="footer__social footer__icon icon-star" aria-label="Перейти в Дзен" target="_blank">Дзен</a>
 		</nav>
 	</div>
 
 	<p class="footer__developer">
-		Разработка сайта: <a href={'https://skyflux.ru'} class="footer__developer" aria-label="SkyFlux Agency — веб-студия" target="_blank">SkyFlux Agency</a>
+		Разработка сайта: <a href={'https://skyflux.ru'} class="footer__developer" aria-label="SkyFlux — веб-студия" target="_blank">SkyFlux</a>
 	</p>
 </footer>
 

@@ -1,7 +1,7 @@
 <script>
 	const { data, children } = $props();
 	import { onMount } from 'svelte';
-	import { menuActive } from '$lib/stores';
+	import { menuActive, modalActive } from '$lib/stores';
 	import '$lib/scss/styles.scss';
 
 	import AOS from 'aos';
@@ -10,6 +10,8 @@
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import Menu from '$lib/components/Menu.svelte';
+	import Tray from '$lib/components/Tray.svelte';
+	import Modal from '$lib/components/Modal.svelte';
 
 	onMount(() => {
 		AOS.init({
@@ -30,6 +32,10 @@
 	<main>
 		{#if $menuActive}
 			<Menu dataSocial={data.social} />
+		{/if}
+		<Tray />
+		{#if $modalActive}
+			<Modal dataSocial={data.social} />
 		{/if}
 		{@render children({ dataSocial: data.social })}
 	</main>

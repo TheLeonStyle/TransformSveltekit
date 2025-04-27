@@ -1,7 +1,8 @@
 import { D as attr, E as escape_html, F as stringify, C as pop, z as push, G as store_get, I as unsubscribe_stores } from "../../chunks/index.js";
-import { m as menuActive } from "../../chunks/stores.js";
+import { m as menuActive, a as modalActive } from "../../chunks/stores.js";
 import "aos";
 import "../../chunks/client.js";
+import "clsx";
 function Header($$payload, $$props) {
   push();
   const { dataHeader, dataContacts } = $$props;
@@ -11,13 +12,24 @@ function Header($$payload, $$props) {
 function Footer($$payload, $$props) {
   push();
   const { dataSocial, dataFooter } = $$props;
-  $$payload.out += `<footer class="footer svelte-9pemxd" aria-labelledby="footer-logo-label"><div class="footer__container svelte-9pemxd"><div class="footer__logo"><a href="/" aria-label="Главная страница — Название вашего сайта"><i class="footer__icon icon-logo svelte-9pemxd" aria-hidden="true"></i></a></div> <address class="footer__info svelte-9pemxd"><p class="footer__text svelte-9pemxd">${escape_html(dataFooter.address)}</p> <p class="footer__text svelte-9pemxd">${escape_html(dataFooter.copyright)}</p></address> <nav class="footer__socials svelte-9pemxd" aria-label="Социальные сети"><a${attr("href", dataSocial.whatsapp)} class="footer__social footer__icon icon-whatsapp svelte-9pemxd" aria-label="Перейти в WhatsApp" target="_blank">WhatsApp</a> <a${attr("href", dataSocial.telegram)} class="footer__social footer__icon icon-telegram svelte-9pemxd" aria-label="Перейти в Telegram" target="_blank">Telegram</a> <a${attr("href", `tel:${stringify(dataSocial.phone)}`)} class="footer__social footer__icon icon-phone svelte-9pemxd"${attr("aria-label", `Позвонить ${stringify(dataSocial.phone)}`)} target="_blank">Звонок</a></nav></div> <p class="footer__developer svelte-9pemxd">Разработка сайта: <a href="https://skyflux.ru" class="footer__developer svelte-9pemxd" aria-label="SkyFlux Agency — веб-студия" target="_blank">SkyFlux Agency</a></p></footer>`;
+  $$payload.out += `<footer class="footer svelte-9pemxd" aria-labelledby="footer-logo-label"><div class="footer__container svelte-9pemxd"><div class="footer__logo"><a href="/" aria-label="Главная страница — Название вашего сайта"><i class="footer__icon icon-logo svelte-9pemxd" aria-hidden="true"></i></a></div> <address class="footer__info svelte-9pemxd"><p class="footer__text svelte-9pemxd">${escape_html(dataFooter.address)}</p> <p class="footer__text svelte-9pemxd">${escape_html(dataFooter.copyright)}</p></address> <nav class="footer__socials svelte-9pemxd" aria-label="Социальные сети"><a${attr("href", dataSocial.whatsapp)} class="footer__social footer__icon icon-whatsapp svelte-9pemxd" aria-label="Перейти в WhatsApp" target="_blank">WhatsApp</a> <a${attr("href", dataSocial.telegram)} class="footer__social footer__icon icon-telegram svelte-9pemxd" aria-label="Перейти в Telegram" target="_blank">Telegram</a> <a${attr("href", `tel:${stringify(dataSocial.phone)}`)} class="footer__social footer__icon icon-phone svelte-9pemxd"${attr("aria-label", `Позвонить ${stringify(dataSocial.phone)}`)} target="_blank">Звонок</a> <a${attr("href", dataSocial.dzen)} class="footer__social footer__icon icon-star svelte-9pemxd" aria-label="Перейти в Дзен" target="_blank">Дзен</a></nav></div> <p class="footer__developer svelte-9pemxd">Разработка сайта: <a href="https://skyflux.ru" class="footer__developer svelte-9pemxd" aria-label="SkyFlux — веб-студия" target="_blank">SkyFlux</a></p></footer>`;
   pop();
 }
 function Menu($$payload, $$props) {
   push();
   const { dataSocial } = $$props;
   $$payload.out += `<dialog class="menu svelte-1gh8pis"><dialog class="menu__content svelte-1gh8pis"><nav class="menu__nav svelte-1gh8pis"><a href="/services" class="menu__link svelte-1gh8pis">Услуги</a> <a href="/works" class="menu__link svelte-1gh8pis">Наши работы</a> <button class="menu__link svelte-1gh8pis">Отзывы</button> <button class="menu__link svelte-1gh8pis">Контакты</button> <a${attr("href", `tel:${stringify(dataSocial.phone)}`)} class="menu__link menu__link-phone menu__icon icon-phone svelte-1gh8pis">${escape_html(dataSocial.phone)}</a></nav></dialog></dialog>`;
+  pop();
+}
+function Tray($$payload, $$props) {
+  push();
+  $$payload.out += `<button class="tray tray__icon icon-phone svelte-11epwox" type="button" aria-label="Открыть контакты">Связь</button>`;
+  pop();
+}
+function Modal($$payload, $$props) {
+  push();
+  const { dataSocial } = $$props;
+  $$payload.out += `<dialog class="modal svelte-vkkk5l"><div class="modal__popup svelte-vkkk5l"><button class="modal__close svelte-vkkk5l" aria-hidden="true"></button> <nav class="modal__nav svelte-vkkk5l"><a${attr("href", dataSocial.whatsapp)} class="modal__link modal__icon icon-whatsapp svelte-vkkk5l" aria-label="Перейти в WhatsApp" target="_blank">WhatsApp</a> <a${attr("href", dataSocial.telegram)} class="modal__link modal__icon icon-telegram svelte-vkkk5l" aria-label="Перейти в Telegram" target="_blank">Telegram</a> <a${attr("href", `tel:${stringify(dataSocial.phone)}`)} class="modal__link modal__icon icon-phone svelte-vkkk5l"${attr("aria-label", `Позвонить ${stringify(dataSocial.phone)}`)} target="_blank">Звонок</a></nav></div></dialog>`;
   pop();
 }
 function _layout($$payload, $$props) {
@@ -33,6 +45,15 @@ function _layout($$payload, $$props) {
   if (store_get($$store_subs ??= {}, "$menuActive", menuActive)) {
     $$payload.out += "<!--[-->";
     Menu($$payload, { dataSocial: data.social });
+  } else {
+    $$payload.out += "<!--[!-->";
+  }
+  $$payload.out += `<!--]--> `;
+  Tray($$payload);
+  $$payload.out += `<!----> `;
+  if (store_get($$store_subs ??= {}, "$modalActive", modalActive)) {
+    $$payload.out += "<!--[-->";
+    Modal($$payload, { dataSocial: data.social });
   } else {
     $$payload.out += "<!--[!-->";
   }

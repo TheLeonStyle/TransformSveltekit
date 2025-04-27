@@ -11,9 +11,9 @@
 	};
 
 	onMount(() => {
-		setTimeout(() => {
-			visible = false;
-		}, 4000);
+		setInterval(() => {
+			visible = !visible;
+		}, 5000);
 	});
 </script>
 
@@ -56,10 +56,14 @@
 		// background-image: url('/img/intro/bg.webp');
 		background-position: center;
 		background-size: cover;
+		min-height: 100vh;
 
-		min-height: 100dvh;
 		@include adaptiveValue('padding-top', 180, 100, 991, 479, 1);
 		padding-bottom: rem(50);
+
+		@media (max-width: $mobile) {
+			min-height: rem(450);
+		}
 
 		/* .intro__container */
 		&__container {

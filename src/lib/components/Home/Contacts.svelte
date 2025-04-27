@@ -14,9 +14,9 @@
 				</a>
 			</li>
 			<li class="contacts__item">
-				<a href={dataContacts.dzen} class="contacts__link" aria-label="Перейти на Дзен" target="_blank">
-					<i class="contacts__icon icon-star" aria-hidden="true"></i>
-					Наш Дзен
+				<a href={dataContacts.whatsapp} class="contacts__link" aria-label="Перейти в Ватсапп" target="_blank">
+					<i class="contacts__icon icon-whatsapp" aria-hidden="true"></i>
+					WhatsApp
 				</a>
 			</li>
 			<li class="contacts__item">
