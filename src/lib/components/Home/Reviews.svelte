@@ -8,6 +8,19 @@
 	let sliderInstance = null;
 	let currentSlide = $state(0);
 
+	// Переключение слайдов по кнопкам
+	const prevSlide = () => {
+		if (sliderInstance) {
+			sliderInstance.prev();
+		}
+	};
+	const nextSlide = () => {
+		if (sliderInstance) {
+			sliderInstance.next();
+		}
+	};
+
+	// Переключение слайдов по буллетам
 	const bulletClick = (index) => {
 		if (sliderInstance) {
 			sliderInstance.moveToIdx(index);
@@ -53,6 +66,7 @@
 		</ul>
 
 		<nav class="reviews__nav" aria-label="Навигация по отзывам">
+			<button class="reviews__arrow reviews__arrow-prev" onclick={prevSlide}>ᐸ</button>
 			{#each Array(dataReviews.length) as _, index}
 				<button
 					type="button"
@@ -64,6 +78,7 @@
 					onclick={() => bulletClick(index)}>
 				</button>
 			{/each}
+			<button class="reviews__arrow reviews__arrow-next" onclick={nextSlide}>ᐳ</button>
 		</nav>
 	</div>
 </section>
@@ -140,7 +155,30 @@
 		&__nav {
 			display: flex;
 			justify-content: center;
+			align-items: center;
 			gap: rem(15);
+		}
+		&__arrow {
+			width: rem(30);
+			height: rem(30);
+			background-color: #ffffff;
+			border-radius: 50%;
+			transition: background-color 0.3s ease 0s;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: #ff6500;
+			font-size: rem(20);
+
+			&:hover {
+				background-color: #ffb367;
+			}
+
+			&-prev {
+			}
+			&-next {
+			}
 		}
 		/* .reviews__bullet */
 		&__bullet {

@@ -69,17 +69,17 @@ function Reviews($$payload, $$props) {
   let currentSlide = 0;
   const each_array = ensure_array_like(dataReviews);
   const each_array_1 = ensure_array_like(Array(dataReviews.length));
-  $$payload.out += `<section class="reviews svelte-1g8s5dw" id="reviews" aria-labelledby="reviews-heading"><div class="reviews__container svelte-1g8s5dw"><h2 id="reviews-heading" class="reviews__heading heading svelte-1g8s5dw" data-aos="fade-right">Отзывы клиентов</h2> <ul class="reviews__items svelte-1g8s5dw" aria-roledescription="carousel" aria-label="Отзывы клиентов" aria-live="polite" data-aos="zoom-in"><!--[-->`;
+  $$payload.out += `<section class="reviews svelte-8p1axo" id="reviews" aria-labelledby="reviews-heading"><div class="reviews__container svelte-8p1axo"><h2 id="reviews-heading" class="reviews__heading heading svelte-8p1axo" data-aos="fade-right">Отзывы клиентов</h2> <ul class="reviews__items svelte-8p1axo" aria-roledescription="carousel" aria-label="Отзывы клиентов" aria-live="polite" data-aos="zoom-in"><!--[-->`;
   for (let index = 0, $$length = each_array.length; index < $$length; index++) {
     let review = each_array[index];
-    $$payload.out += `<li class="reviews__item keen-slider__slide svelte-1g8s5dw" aria-roledescription="slide"${attr("aria-label", `Слайд ${index + 1} из ${dataReviews.length}`)}><div class="reviews__author svelte-1g8s5dw"><p class="reviews__name svelte-1g8s5dw">${escape_html(review.name)}</p> <p class="reviews__role svelte-1g8s5dw">${escape_html(review.role)}</p></div> <div class="reviews__content svelte-1g8s5dw"><p class="reviews__text svelte-1g8s5dw">${escape_html(review.text)}</p></div></li>`;
+    $$payload.out += `<li class="reviews__item keen-slider__slide svelte-8p1axo" aria-roledescription="slide"${attr("aria-label", `Слайд ${index + 1} из ${dataReviews.length}`)}><div class="reviews__author svelte-8p1axo"><p class="reviews__name svelte-8p1axo">${escape_html(review.name)}</p> <p class="reviews__role svelte-8p1axo">${escape_html(review.role)}</p></div> <div class="reviews__content svelte-8p1axo"><p class="reviews__text svelte-8p1axo">${escape_html(review.text)}</p></div></li>`;
   }
-  $$payload.out += `<!--]--></ul> <nav class="reviews__nav svelte-1g8s5dw" aria-label="Навигация по отзывам"><!--[-->`;
+  $$payload.out += `<!--]--></ul> <nav class="reviews__nav svelte-8p1axo" aria-label="Навигация по отзывам"><button class="reviews__arrow reviews__arrow-prev svelte-8p1axo">ᐸ</button> <!--[-->`;
   for (let index = 0, $$length = each_array_1.length; index < $$length; index++) {
     each_array_1[index];
-    $$payload.out += `<button type="button"${attr_class("reviews__bullet svelte-1g8s5dw", void 0, { "active": index === currentSlide })}${attr("aria-label", `Перейти к отзыву ${index + 1}`)} aria-controls="reviews" aria-roledescription="carousel button"></button>`;
+    $$payload.out += `<button type="button"${attr_class("reviews__bullet svelte-8p1axo", void 0, { "active": index === currentSlide })}${attr("aria-label", `Перейти к отзыву ${index + 1}`)} aria-controls="reviews" aria-roledescription="carousel button"></button>`;
   }
-  $$payload.out += `<!--]--></nav></div></section>`;
+  $$payload.out += `<!--]--> <button class="reviews__arrow reviews__arrow-next svelte-8p1axo">ᐳ</button></nav></div></section>`;
   pop();
 }
 function Contacts($$payload, $$props) {

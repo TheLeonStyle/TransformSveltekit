@@ -23,7 +23,7 @@ function Menu($$payload, $$props) {
 }
 function Tray($$payload, $$props) {
   push();
-  $$payload.out += `<button class="tray tray__icon icon-phone svelte-11epwox" type="button" aria-label="Открыть контакты">Связь</button>`;
+  $$payload.out += `<button class="tray tray__icon icon-phone svelte-q72apy" type="button" aria-label="Открыть контакты">Связь</button>`;
   pop();
 }
 function Modal($$payload, $$props) {

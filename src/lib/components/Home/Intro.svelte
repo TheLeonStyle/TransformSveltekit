@@ -13,7 +13,7 @@
 	onMount(() => {
 		setInterval(() => {
 			visible = !visible;
-		}, 5000);
+		}, 6000);
 	});
 </script>
 

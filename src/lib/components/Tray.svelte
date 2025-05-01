@@ -20,7 +20,7 @@
 		color: #ffffff;
 		font-size: rem(16);
 
-		padding: rem(12) rem(22);
+		padding: rem(16) rem(22);
 		transition: background-color 0.3s ease 0s;
 
 		&:hover {

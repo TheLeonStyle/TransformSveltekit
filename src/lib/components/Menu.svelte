@@ -2,6 +2,12 @@
 	const { dataSocial } = $props();
 	import { menuActive, menuStore } from '$lib/stores';
 	import { slide } from 'svelte/transition';
+	import { scrollTo } from '$lib/utils/scrollTo';
+
+	const handleMenu = (id) => {
+		menuStore.close();
+		scrollTo(id);
+	};
 </script>
 
 <dialog class="menu" onclick={() => menuStore.close()} transition:slide>
@@ -10,8 +16,8 @@
 		<nav class="menu__nav">
 			<a href="/services" class="menu__link">Услуги</a>
 			<a href="/works" class="menu__link">Наши работы</a>
-			<button class="menu__link">Отзывы</button>
-			<button class="menu__link">Контакты</button>
+			<button class="menu__link" onclick={() => handleMenu('reviews')}>Отзывы</button>
+			<button class="menu__link" onclick={() => handleMenu('contacts')}>Контакты</button>
 			<a href="tel:{dataSocial.phone}" class="menu__link menu__link-phone menu__icon icon-phone">{dataSocial.phone}</a>
 		</nav>
 	</dialog>
